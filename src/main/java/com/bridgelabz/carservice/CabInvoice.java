@@ -30,4 +30,11 @@ public class CabInvoice
 
 	        return new InvoiceSummery(numberOfRides, totalFare);
 	    }
+	    
+	    public void PrintDetailsFromInvoice(InvoiceSummery is)
+	    {
+	        System.out.println("Total Number of rides :- " + is.totalNumberOfRides);
+	        System.out.println("Total fare of ride :- " + is.totalFare);
+	        System.out.println("Average fare of ride :- " + is.avgFarePerRide);
+	    }
 }

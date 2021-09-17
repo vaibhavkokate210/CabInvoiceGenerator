@@ -9,8 +9,9 @@ import org.junit.Test;
 import com.bridgelabz.carservice.CabData;
 import com.bridgelabz.carservice.CabInvoice;
 import com.bridgelabz.carservice.InvoiceSummery;
+import com.bridgelabz.carservice.MultipleUsers;
 
-public class CabServiceTest 
+public class CabServiceTest<K, V> 
 {
 	ArrayList<CabData> cabData = new ArrayList<>();
 	@Test
@@ -47,7 +48,7 @@ public class CabServiceTest
     }
 
     @Test
-    public void givenMultipleRides_ReturnInvoiceSummary()
+    public void GivenMultipleRides_ReturnInvoiceSummary()
     {
         CabInvoice cabInvoice = new CabInvoice();
         InvoiceSummery invSum = cabInvoice.invoiceSummary(cabData);
@@ -57,5 +58,16 @@ public class CabServiceTest
             equal =1;
 
         Assert.assertEquals(1, equal);
+    }
+    
+    @Test
+    public void GivenID_Return_SummaryObject()
+    {
+        CabInvoice cabInvoice = new CabInvoice();
+        MultipleUsers<K,V> mu = new MultipleUsers<K,V>();
+        InvoiceSummery is = mu.getInvoiceSummary();
+
+        cabInvoice.PrintDetailsFromInvoice(is);
+
     }
 }
