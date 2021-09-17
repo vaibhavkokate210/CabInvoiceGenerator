@@ -22,4 +22,12 @@ public class CabInvoice
 	        }
 	        return fare;
 	    }
+	    
+	    public InvoiceSummery invoiceSummary(ArrayList<CabData> cabData)
+	    {
+	        int numberOfRides = cabData.size();
+	        double totalFare = calculateFares(cabData);
+
+	        return new InvoiceSummery(numberOfRides, totalFare);
+	    }
 }
